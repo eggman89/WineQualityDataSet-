@@ -11,9 +11,6 @@ import org.apache.spark.sql.{DataFrame, SQLContext}
 import org.joda.time
 import org.joda.time.DateTime
 
-/**
-  * Created by snehasis on 12/18/2015.
-  */
 object doRandomForest {
   def trainAndTest(sc: SparkContext, dataset: DataFrame)
   {
@@ -54,7 +51,7 @@ object doRandomForest {
 
 
     /*do Random Forest classifier*/
-    val rfc = new RandomForestClassifier().setMaxBins(30).setMaxDepth(30).setMaxMemoryInMB(2048).setNumTrees(50)
+    val rfc = new RandomForestClassifier().setMaxBins(30).setMaxDepth(30).setMaxMemoryInMB(2048).setNumTrees(1000)
       .setLabelCol("indexedQuality")
       .setFeaturesCol("indexedFeatures")
 
@@ -89,7 +86,7 @@ object doRandomForest {
     var confusion_matrix = new  MulticlassMetrics(predictionsAndLabels)
     println(confusion_matrix.confusionMatrix)
     /*do Random Forest Regressor*/
-    val rfr = new RandomForestRegressor().setMaxBins(300).setMaxDepth(30).setMaxMemoryInMB(2048).setNumTrees(50)
+    val rfr = new RandomForestRegressor().setMaxBins(200).setMaxDepth(30).setMaxMemoryInMB(2048).setNumTrees(25)
       .setLabelCol("quality")
       .setFeaturesCol("indexedFeatures")
 
@@ -121,7 +118,7 @@ object doRandomForest {
     rmse = reg_evaluator.evaluate(predictions2)
     println("Root Mean Squared Error (RMSE) on test data = " + rmse)
 
-    //confsuion matrix
+    //confusion matrix
     println("confusion matrix")
     predictionsAndLabels = predictions2.map(p=>(p(0).toString.toDouble, p(3).toString.toDouble))
     confusion_matrix = new  MulticlassMetrics(predictionsAndLabels)

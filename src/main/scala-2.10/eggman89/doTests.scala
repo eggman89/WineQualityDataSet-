@@ -10,9 +10,7 @@ import org.apache.spark.mllib.recommendation.{ALS, Rating}
 import org.apache.spark.sql.{DataFrame, SQLContext}
 import org.apache.spark.ml.feature._
 
-/**
-  * Created by snehasis on 12/18/2015.
-  */
+
 object doTests {
 
   def main (args: Array[String])
@@ -41,9 +39,9 @@ object doTests {
       .format("com.databricks.spark.csv")
       .option("header", "true") // Use first line of all files as header
       .option("inferSchema", "true") // Automatically infer data types
-      .load("dataset/winequality-white.csv")
+      .load("dataset/winequality-red.csv")
 
-    println("1: Decision Tree; 2:RandomForest")
+    println("1: Decision Tree; 2:RandomForest; 3: LogisticRegressionWithLBFGS")
     val input = readInt()
 
     if (input == 1) {
@@ -53,11 +51,11 @@ object doTests {
       {
         doRandomForest.trainAndTest(sc, df_whitewine)
       }
+    else if (input == 3)
+      {
 
-
-
-
-
-  }
+        doLogisticRegressionWithLBFGS.trainAndTest(sc,df_whitewine)
+      }
+     }
 
 }

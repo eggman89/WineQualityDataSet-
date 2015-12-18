@@ -11,9 +11,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 import org.joda.time
 import org.joda.time.DateTime
 
-/**
-  * Created by snehasis on 12/18/2015.
-  */
+
 object doDecisionTrees {
   def trainAndTest(sc: SparkContext, dataset: DataFrame)
   {

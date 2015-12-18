@@ -1,8 +1,6 @@
 package eggman89
 
-/**
-  * Created by snehasis on 12/18/2015.
-  */
+
 class hashmap  extends java.io.Serializable
 {
   var obj:Map[String,Int] = Map()
