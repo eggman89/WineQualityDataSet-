@@ -3,7 +3,7 @@ A simple but fun program that let's you predict the class of the wine depending 
 
 It's possible to get far more result using the library attributes. The results from my experiments are stored in the results folder.
 
-Dataset:([Direct Link](http://mlr.cs.umass.edu/ml/machine-learning-databases/wine/)
+Dataset:[Direct Link](http://mlr.cs.umass.edu/ml/machine-learning-databases/wine/)
 
 
 
