@@ -51,7 +51,7 @@ object doRandomForest {
 
 
     /*do Random Forest classifier*/
-    val rfc = new RandomForestClassifier().setMaxBins(30).setMaxDepth(30).setMaxMemoryInMB(2048).setNumTrees(1000)
+    val rfc = new RandomForestClassifier().setMaxBins(15).setMaxDepth(30).setMaxMemoryInMB(2048).setNumTrees(1000)
       .setLabelCol("indexedQuality")
       .setFeaturesCol("indexedFeatures")
 
@@ -86,7 +86,7 @@ object doRandomForest {
     var confusion_matrix = new  MulticlassMetrics(predictionsAndLabels)
     println(confusion_matrix.confusionMatrix)
     /*do Random Forest Regressor*/
-    val rfr = new RandomForestRegressor().setMaxBins(200).setMaxDepth(30).setMaxMemoryInMB(2048).setNumTrees(25)
+    val rfr = new RandomForestRegressor().setMaxBins(15).setMaxDepth(30).setMaxMemoryInMB(4096).setNumTrees(2500)
       .setLabelCol("quality")
       .setFeaturesCol("indexedFeatures")
 
